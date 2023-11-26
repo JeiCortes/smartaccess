@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Código QR Aleatorio</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #codigoQR {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <h1> Código QR generado exitosamente </h1>
+    <h2> Se ha generado el código de acceso temporal. </h2>
+
+    <div id="codigoQR"></div>
+
+    <script>
+        // Función para generar un código QR aleatorio
+        function generarCodigoQR() {
+            // Generar un número aleatorio
+            const numeroAleatorio = Math.floor(Math.random() * 1000000);
+
+            // Convertir el número a una cadena
+            const textoCodigoQR = numeroAleatorio.toString();
+
+            // Crear un nuevo objeto QRCode y mostrar el código QR en el elemento con el id "codigoQR"
+            const qrcode = new QRCode(document.getElementById("codigoQR"), {
+                text: textoCodigoQR,
+                width: 128,
+                height: 128
+            });
+        }
+
+        // Llamar a la función para generar el código QR aleatorio al cargar la página
+        generarCodigoQR();
+    </script>
+    <a href="opciones.html"><button>Volver</button></a>
+
+</body>
+</html>
+

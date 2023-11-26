@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Reporte de Credencial</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 20%;
+            height: auto;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Agregado: Estilo para el botón de volver */
+        a button.volver {
+            background-color: #808080;
+        }
+
+        a button.volver:hover {
+            background-color: #707070;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Solicitud de Reporte de Credencial</h2>
+    
+    <form id="solicitudForm">
+        <label for="correo">Ingrese su correo:</label>
+        <input type="text" id="correo" name="correo" required>
+
+        <button type="button" onclick="enviarSolicitud()">Enviar Solicitud</button>
+        
+        <p class="error-message" id="errorMensaje"></p>
+    </form>
+
+    <script>
+        function enviarSolicitud() {
+            // Obtener el valor del correo ingresado
+            const correoIngresado = document.getElementById('correo').value;
+
+            // Obtener el correo almacenado durante el registro
+            const usuarioRegistrado = JSON.parse(localStorage.getItem('usuarioActual'));
+            const correoRegistrado = usuarioRegistrado ? usuarioRegistrado.correo : null;
+
+            // Verificar si el correo ingresado coincide con el correo registrado
+            if (correoIngresado === correoRegistrado) {
+                // Aquí podrías agregar lógica para enviar la solicitud al servidor
+                alert('Solicitud enviada correctamente para el correo: ' + correoIngresado);
+            } else {
+                // Mostrar mensaje de error si el correo no coincide
+                document.getElementById('errorMensaje').textContent = 'El correo ingresado no coincide con el registrado.';
+            }
+        }
+    </script>
+    <!-- Agregado: Enlace para volver -->
+    <a href="opciones.html"><button class="button">Volver</button></a>
+
+</body>
+</html>
+
+

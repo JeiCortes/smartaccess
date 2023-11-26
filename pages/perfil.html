@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .perfil-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .perfil-info div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Perfil del Usuario</h2>
+
+    <div class="perfil-info">
+        <div>
+            <label for="nombre">Nombres:</label>
+            <span id="nombreUsuario"></span>
+        </div>
+
+        <div>
+            <label for="apellidos">Apellidos:</label>
+            <span id="apellidosUsuario"></span>
+        </div>
+
+        <div>
+            <label for="correo">Correo:</label>
+            <span id="correoUsuario"></span>
+        </div>
+
+        <div>
+            <label for="telefono">Teléfono:</label>
+            <span id="telefonoUsuario"></span>
+        </div>
+    </div>
+    
+    <script src="/js/perfil.js"></script>
+    <a href="opciones.html"><button>Volver</button></a>
+</body>
+</html>
+
+

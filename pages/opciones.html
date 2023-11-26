@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Access</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        span{
+            color:#45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Hola <span id="nombreUsuario"></span>!</h1>
+    <h2> ¿Que deseas hacer? </h2>
+    
+    <a href="qr.html"><button>Generar QR</button></a>
+    <a href="perfil.html"><button>Información de perfil</button></a>
+    <a href="reporte.html"><button>Reporte credencial</button></a>
+    <a href="ayuda.html"><button>Información ayuda</button></a>
+
+    <button onclick="cerrarSesion()">Cerrar Sesión</button>
+
+    <script>
+        // Obtener la información del usuario del almacenamiento local
+        const usuarioActual = JSON.parse(localStorage.getItem('usuarioActual'));
+
+        // Verificar si hay un usuario autenticado
+        if (usuarioActual) {
+            // Obtener el elemento span por su id
+            const spanNombreUsuario = document.getElementById('nombreUsuario');
+
+            // Cambiar el contenido del span con el nombre del usuario
+            spanNombreUsuario.textContent = usuarioActual.nombres;
+        } else {
+            // Redirigir al usuario a la página de inicio de sesión si no está autenticado
+            window.location.replace('/pages/sesion.html.html');
+        }
+
+        function cerrarSesion() {
+            // Limpiar la información del usuario en el almacenamiento local
+            localStorage.removeItem('usuarioActual');
+            
+            // Redirigir al usuario a la página de inicio (index.html)
+            window.location.replace('index.html');
+        }
+    </script>
+
+</body>
+</html>
+
